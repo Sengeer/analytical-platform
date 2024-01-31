@@ -1,5 +1,4 @@
 .root {
-  margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -8,14 +7,10 @@
 
 :root {
   --main-accent: #5d5fef;
-  --button-border: #e2e3e5;
+  --main-border: #e2e3e5;
   --button-text: #4d5562;
   --marking-lines: #c4c4c4;
   --background: #f3f4f6;
   --black: #000;
   --white: #fff;
-}
-
-.test {
-  color: var(--black);
 }
