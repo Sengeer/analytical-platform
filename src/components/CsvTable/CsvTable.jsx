@@ -2,10 +2,9 @@ import './CsvTable.scss';
 
 function CsvTable() {
   return (
-    <nav
+    <div
       className="table" >
-      <h1>Таблицы</h1>
-    </nav>
+    </div>
   );
 }
 
