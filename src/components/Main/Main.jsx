@@ -1,7 +1,7 @@
 import './Main.scss';
 import Menu from "../Menu/Menu"
 import CsvTables from "../CsvTable/CsvTable"
-import Graphs from "../Graphs/Graphs"
+import Charts from "../Charts/Charts"
 
 function Main() {
   return (
@@ -9,7 +9,7 @@ function Main() {
       className="main">
       <Menu />
       <CsvTables />
-      <Graphs />
+      <Charts />
     </main>
   );
 }
