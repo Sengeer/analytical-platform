@@ -1,9 +1,6 @@
 import './Table.scss';
-import React, { useState } from "react";
 
 const Table = ({name, unit, rows, onChange, onUpdate}) => {
-  const columnsArray = [unit];
-
   const handleAddRow = () => {
     const item = {};
     onChange(item);
@@ -39,30 +36,30 @@ const Table = ({name, unit, rows, onChange, onUpdate}) => {
           <table id="tab_logic">
             <thead>
               <tr>
-                <th className="table__text"> # </th>
-                {columnsArray.map((column, index) => (
-                  <th className="table__text" key={index}>
-                    {column}
+                <th className="table__text">
+                  #
+                </th>
+                  <th className="table__text">
+                    {unit}
                   </th>
-                ))}
                 <th />
               </tr>
             </thead>
             <tbody>
               {rows.map((item, idx) => (
                 <tr key={idx}>
-                  <td>{idx + 1}</td>
-                  {columnsArray.map((column, index) => (
-                    <td key={index}>
-                      <input
-                        type="text"
-                        column={column}
-                        value={rows[idx][column]}
-                        index={idx}
-                        className="form-control"
-                        onChange={(e) => updateState(e)} />
-                    </td>
-                  ))}
+                  <td>
+                    {idx + 1}
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      column={unit}
+                      value={rows[idx][unit]}
+                      index={idx}
+                      className="form-control"
+                      onChange={(e) => updateState(e)} />
+                  </td>
                   <td>
                     <button
                       className="table__btn-remove"

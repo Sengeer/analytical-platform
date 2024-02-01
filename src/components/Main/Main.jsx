@@ -1,15 +1,13 @@
 import './Main.scss';
 import Menu from "../Menu/Menu"
-import CsvTables from "../CsvTable/CsvTable"
-import Charts from "../Charts/Charts"
+import Content from "../Content/Content"
 
 function Main() {
   return (
     <main
       className="main">
       <Menu />
-      <CsvTables />
-      <Charts />
+      <Content />
     </main>
   );
 }
