@@ -40,7 +40,7 @@ export default function CSVReader({data}) {
       }) => (
         <>
           <div style={styles.csvReader}>
-            <button type='button' {...getRootProps()} style={styles.browseFile}>
+            <button type="button" {...getRootProps()} style={styles.browseFile}>
               Обзор
             </button>
             <div style={styles.acceptedFile}>

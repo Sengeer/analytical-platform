@@ -4,7 +4,7 @@ import Chart from "../Chart/Chart"
 function Charts({ unit, chartValues }) {
   return (
     <div
-      className='charts'>
+      className="charts">
       <h2
         className="charts__title">
           Графики

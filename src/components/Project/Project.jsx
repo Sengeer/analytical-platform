@@ -1,11 +1,11 @@
-import './Content.scss';
+import './Project.scss';
 import React, { useState } from "react";
 import Table from "../Table/Table";
 import Charts from "../Charts/Charts"
 import CSVReader from "../CSVReader/CSVReader"
 import { usePapaParse, useCSVDownloader } from 'react-papaparse';
 
-const Content = () => {
+const Project = () => {
   const [rows, setRows] = useState([]);
 
   const nameUnit = ["Давление", "Температура", "Объем"]
@@ -65,4 +65,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default Project;

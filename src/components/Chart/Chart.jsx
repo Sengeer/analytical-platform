@@ -6,7 +6,7 @@ function Chart({ chartValues, unit }) {
 
   return (
     <div
-      className='chart' >
+      className="chart" >
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           width={400}

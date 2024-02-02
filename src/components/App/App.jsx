@@ -1,9 +1,15 @@
 import './App.scss';
+import { Routes, Route } from 'react-router-dom';
 import Main from '../Main/Main';
+
 
 function App() {
   return (
-      <Main />
+    <Routes>
+      <Route path="/" element={
+        <Main />
+      } />
+    </Routes>
   );
 }
 
