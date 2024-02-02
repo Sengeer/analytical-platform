@@ -1,14 +1,14 @@
 import './Table.scss';
 
-const Table = ({name, unit, rows, onChange, onUpdate}) => {
+const Table = ({nameUnit, unit, rows, onChange, onUpdate}) => {
   const handleAddRow = () => {
     const item = {};
     onChange(item);
   };
 
-  const handleRemoveSpecificRow = (idx) => {
+  const handleRemoveSpecificRow = () => {
     const tempRows = [...rows];
-    tempRows.splice(idx, 1);
+    tempRows.splice(-1);
     onUpdate(tempRows);
   };
 
@@ -28,53 +28,53 @@ const Table = ({name, unit, rows, onChange, onUpdate}) => {
   return (
     <div className="table">
       <div className="table__container">
-        <h2
-          className="table__title">
-            {name}
-        </h2>
-        <div className="table__column">
-          <table id="tab_logic">
-            <thead>
-              <tr>
-                <th className="table__text">
-                  #
-                </th>
+        <button onClick={handleAddRow} className="table__btn-add">
+          Добавить
+        </button>
+        <button
+          className="table__btn-remove"
+          onClick={() => handleRemoveSpecificRow()}>
+            Удалить
+        </button>
+        {nameUnit.map((item, index) => (
+          <div className="table__column" key={index}>
+            <h2
+              className="table__title">
+                {item}
+            </h2>
+            <table id="tab_logic">
+              <thead>
+                <tr>
                   <th className="table__text">
-                    {unit}
+                    #
                   </th>
-                <th />
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((item, idx) => (
-                <tr key={idx}>
-                  <td>
-                    {idx + 1}
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      column={unit}
-                      value={rows[idx][unit]}
-                      index={idx}
-                      className="form-control"
-                      onChange={(e) => updateState(e)} />
-                  </td>
-                  <td>
-                    <button
-                      className="table__btn-remove"
-                      onClick={() => handleRemoveSpecificRow(idx)}>
-                      Удалить
-                    </button>
-                  </td>
+                    <th className="table__text">
+                      {unit[index]}
+                    </th>
+                  <th />
                 </tr>
-              ))}
-            </tbody>
-          </table>
-          <button onClick={handleAddRow} className="table__btn-add">
-            Добавить
-          </button>
-        </div>
+              </thead>
+              <tbody>
+                {rows.map((item, idx) => (
+                  <tr key={idx}>
+                    <td>
+                      {idx + 1}
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        column={unit[index]}
+                        value={rows[idx][unit[index]]}
+                        index={idx}
+                        className="table__input"
+                        onChange={(e) => updateState(e)} />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ))}
       </div>
     </div>
   );

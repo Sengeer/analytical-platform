@@ -1,23 +1,16 @@
 import './Charts.scss';
 import Chart from "../Chart/Chart"
 
-function Charts({
-  pressure,
-  temperature,
-  volume
-}) {
+function Charts({ unit, chartValues }) {
   return (
     <div
       className='charts'>
-      <Chart
-        data={pressure}
-        unit="Па" />
-      <Chart
-        data={temperature}
-        unit="°C" />
-      <Chart
-        data={volume}
-        unit="м3" />
+      {unit.map((item, index) => (
+        <Chart
+          chartValues={chartValues}
+          unit={item}
+          key={index} />
+      ))}
     </div>
   );
 }

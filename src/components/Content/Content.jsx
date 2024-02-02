@@ -6,62 +6,48 @@ import CSVReader from "../CSVReader/CSVReader"
 import { usePapaParse, useCSVDownloader } from 'react-papaparse';
 
 const Content = () => {
-  const [rowsPressure, setRowsPressure] = useState([]);
-  const [rowsTemperature, setRowsTemperature] = useState([]);
-  const [rowsVolume, setRowsVolume] = useState([]);
+  const [rows, setRows] = useState([]);
+
+  const nameUnit = ["Давление", "Температура", "Объем"]
+  const unit = ["Па", "°C", "м3"];
 
   const { jsonToCSV } = usePapaParse();
   const { CSVDownloader, Type } = useCSVDownloader();
 
-  const data = [...rowsPressure, ...rowsTemperature, ...rowsVolume]
-
   const saveResult = () => {
-    const results = jsonToCSV(data, {
+    const results = jsonToCSV(rows, {
       skipEmptyLines: 'greedy',
-      columns: ["Па", "°C", "м3"]
+      columns: unit
     });
     return results;
   }
 
   const handleGetValues = (csvString) => {
-    let rowsPressureNext = [];
-    let rowsTemperatureNext = [];
-    let rowsVolumeNext = [];
+    let rowsNext = [];
 
     for (let c = 1; c < csvString.data.length; c++) {
-      csvString.data[c].forEach((i, l) => {
-        if (l === 0 && i) rowsPressureNext.push({ "Па": i });
-        if (l === 1 && i) rowsTemperatureNext.push({ "°C": i });
-        if (l === 2 && i) rowsVolumeNext.push({ "м3": i });
-      });
-    }
+      let obj = {};
 
-    setRowsPressure(rowsPressureNext);
-    setRowsTemperature(rowsTemperatureNext);
-    setRowsVolume(rowsVolumeNext);
+      for (let i = 0; i < csvString.data[c].length; i++) {
+        if (i === 0 && csvString.data[c][i]) obj[unit[i]] = csvString.data[c][i];
+        if (i === 1 && csvString.data[c][i]) obj[unit[i]] = csvString.data[c][i];
+        if (i === 2 && csvString.data[c][i]) obj[unit[i]] = csvString.data[c][i];
+      }
+
+      rowsNext.push(obj);
+    }
+    setRows(rowsNext);
   }
 
   return (
     <>
       <div className="csv-table">
         <Table
-          name="Давление"
-          unit="Па"
-          rows={rowsPressure}
-          onChange={i => setRowsPressure([...rowsPressure, i])}
-          onUpdate={i => setRowsPressure(i)} />
-        <Table
-          name="Температура"
-          unit="°C"
-          rows={rowsTemperature}
-          onChange={i => setRowsTemperature([...rowsTemperature, i])}
-          onUpdate={i => setRowsTemperature(i)} />
-        <Table
-          name="Объем"
-          unit="м3"
-          rows={rowsVolume}
-          onChange={i => setRowsVolume([...rowsVolume, i])}
-          onUpdate={i => setRowsVolume(i)} />
+          nameUnit={nameUnit}
+          unit={unit}
+          rows={rows}
+          onChange={i => setRows([...rows, i])}
+          onUpdate={i => setRows(i)} />
         <CSVDownloader
           type={Type.Button}
           filename={'filename'}
@@ -73,9 +59,8 @@ const Content = () => {
           data={handleGetValues} />
       </div>
       <Charts
-        pressure={rowsPressure}
-        temperature={rowsTemperature}
-        volume={rowsVolume} />
+        unit={unit}
+        chartValues={rows} />
     </>
   );
 };

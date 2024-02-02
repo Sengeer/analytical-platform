@@ -1,7 +1,9 @@
 import './Chart.scss';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-function Chart({data, unit}) {
+function Chart({ chartValues, unit }) {
+  const data = chartValues.filter((i) => i[unit] !== undefined)
+
   return (
     <div
       className='chart' >
