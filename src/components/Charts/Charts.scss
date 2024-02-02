@@ -1,3 +1,12 @@
 .charts {
   width: 400px;
 }
+
+.charts__title {
+  margin: 0;
+  padding: 10px 10px;
+  text-align: center;
+  font-size: 36px;
+  color: var(--black);
+  border-bottom: 3px solid var(--main-border);
+}

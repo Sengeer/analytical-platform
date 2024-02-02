@@ -27,6 +27,9 @@ const Table = ({nameUnit, unit, rows, onChange, onUpdate}) => {
 
   return (
     <div className="table">
+      <h2 className="table__title">
+          Ввод данных
+      </h2>
       <div className="table__container">
         <button onClick={handleAddRow} className="table__btn-add">
           Добавить
@@ -39,7 +42,7 @@ const Table = ({nameUnit, unit, rows, onChange, onUpdate}) => {
         {nameUnit.map((item, index) => (
           <div className="table__column" key={index}>
             <h2
-              className="table__title">
+              className="table__column-title">
                 {item}
             </h2>
             <table id="tab_logic">

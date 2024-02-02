@@ -5,6 +5,10 @@ function Charts({ unit, chartValues }) {
   return (
     <div
       className='charts'>
+      <h2
+        className="charts__title">
+          Графики
+      </h2>
       {unit.map((item, index) => (
         <Chart
           chartValues={chartValues}

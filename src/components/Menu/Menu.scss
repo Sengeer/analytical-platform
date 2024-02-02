@@ -1,4 +1,13 @@
 .menu {
   flex-basis: 51.8%;
-  border-right: 2px solid var(--main-border);
+  border-right: 3px solid var(--main-border);
+}
+
+.menu__title {
+  margin: 0;
+  padding: 10px 10px;
+  text-align: center;
+  font-size: 36px;
+  color: var(--black);
+  border-bottom: 3px solid var(--main-border);
 }
