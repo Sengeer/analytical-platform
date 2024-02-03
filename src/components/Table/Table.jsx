@@ -1,4 +1,6 @@
 import './Table.scss';
+import MinusIcon from '../../images/icon/minus-btn';
+import PlusIcon from '../../images/icon/plus-btn';
 
 const Table = ({nameUnit, unit, rows, onChange, onUpdate}) => {
   const handleAddRow = () => {
@@ -32,12 +34,12 @@ const Table = ({nameUnit, unit, rows, onChange, onUpdate}) => {
       </h2>
       <div className="table__container">
         <button onClick={handleAddRow} className="table__btn-add">
-          Добавить
+          <PlusIcon width="22px" height="22px" />
         </button>
         <button
           className="table__btn-remove"
           onClick={() => handleRemoveSpecificRow()}>
-            Удалить
+            <MinusIcon width="22px" height="22px" />
         </button>
         {nameUnit.map((item, index) => (
           <div className="table__column" key={index}>
@@ -45,25 +47,39 @@ const Table = ({nameUnit, unit, rows, onChange, onUpdate}) => {
               className="table__column-title">
                 {item}
             </h2>
-            <table id="tab_logic">
+            <table
+              className="table__element"
+              id="tab_logic">
               <thead>
-                <tr>
-                  <th className="table__text">
-                    #
-                  </th>
-                    <th className="table__text">
-                      {unit[index]}
-                    </th>
-                  <th />
-                </tr>
+                {index === 0
+                  ? (
+                    <tr>
+                      <th className="table__hash">
+                        #
+                      </th>
+                      <th className="table__text">
+                        {unit[index]}
+                      </th>
+                    </tr>
+                  ) : (
+                    <tr>
+                      <th className="table__text">
+                        {unit[index]}
+                      </th>
+                    </tr>
+                )}
               </thead>
               <tbody>
                 {rows.map((item, idx) => (
                   <tr key={idx}>
-                    <td>
-                      {idx + 1}
-                    </td>
-                    <td>
+                    {index === 0 &&
+                      <td
+                        className="table__text">
+                        {idx + 1}
+                      </td>
+                    }
+                    <td
+                      className="table__input-container">
                       <input
                         type="number"
                         column={unit[index]}

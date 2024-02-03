@@ -3,7 +3,10 @@ import React, { useState } from "react";
 import Table from "../Table/Table";
 import Charts from "../Charts/Charts"
 import CSVReader from "../CSVReader/CSVReader"
-import { usePapaParse, useCSVDownloader } from 'react-papaparse';
+import {
+  usePapaParse,
+  useCSVDownloader
+} from 'react-papaparse';
 
 const Project = () => {
   const [rows, setRows] = useState([]);
@@ -41,22 +44,27 @@ const Project = () => {
 
   return (
     <>
-      <div className="csv-table">
+      <div className="project">
         <Table
           nameUnit={nameUnit}
           unit={unit}
           rows={rows}
           onChange={i => setRows([...rows, i])}
           onUpdate={i => setRows(i)} />
-        <CSVDownloader
-          type={Type.Button}
-          filename={'filename'}
-          bom={true}
-          data={saveResult}>
-            Сохранить результат
-        </CSVDownloader>
-        <CSVReader
-          data={handleGetValues} />
+        <div
+          className="project__container">
+          <CSVDownloader
+            className="project__btn"
+            type={Type.Button}
+            filename={'analytical-data'}
+            bom={true}
+            data={saveResult}>
+              Сохранить CSV
+          </CSVDownloader>
+          <CSVReader
+            data={handleGetValues}
+            onChange={() => setRows([])} />
+        </div>
       </div>
       <Charts
         unit={unit}

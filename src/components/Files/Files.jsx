@@ -1,11 +1,11 @@
 import './Files.scss';
 
-function Files() {
 
+function Files() {
   return (
     <div
       className="files">
-        <h2>Проводник</h2>
+      <h2>Проводник</h2>
     </div>
   );
 }

@@ -1,4 +1,28 @@
-.csv-table {
+.project {
   width: 100%;
   border-right: 3px solid var(--main-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.project__container {
+  margin: 28px 28px 0;
+  display: flex;
+  min-height: 54px;
+  flex-shrink: 0;
+}
+
+.project__btn {
+  width: 30%;
+  background-color: var(--main-accent);
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  transition: all linear 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }

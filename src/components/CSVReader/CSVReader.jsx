@@ -1,31 +1,37 @@
 import { useCSVReader } from 'react-papaparse';
+import './CSVReader.scss'
 
 const styles = {
   csvReader: {
     display: 'flex',
-    flexDirection: 'row',
-    marginBottom: 10,
+    flexDirection: 'row-reverse',
+    width: '100%',
   },
   browseFile: {
+    backgroundColor: 'var(--main-accent)',
+    color: 'var(--white)',
+    border: 'none',
+    borderRadius: '10px',
+    cursor: 'pointer',
+    boxShadow: '0px 2px 6px rgba(0, 0, 0, 0.2)',
+    transition: 'all linear 0.2s',
+    overflow: 'hidden',
     width: '20%',
   },
-  acceptedFile: {
-    border: '1px solid #ccc',
-    height: 45,
-    lineHeight: 2.5,
-    paddingLeft: 10,
-    width: '80%',
-  },
   remove: {
-    borderRadius: 0,
-    padding: '0 20px',
-  },
-  progressBarBackgroundColor: {
-    backgroundColor: 'red',
+    backgroundColor: 'var(--main-accent)',
+    color: 'var(--white)',
+    border: 'none',
+    borderRadius: '10px',
+    cursor: 'pointer',
+    boxShadow: '0px 2px 6px rgba(0, 0, 0, 0.2)',
+    transition: 'all linear 0.2s',
+    width: '20%',
+    marginRight: '28px',
   },
 };
 
-export default function CSVReader({data}) {
+export default function CSVReader({data, onChange}) {
   const { CSVReader } = useCSVReader();
 
   return (
@@ -34,23 +40,25 @@ export default function CSVReader({data}) {
     >
       {({
         getRootProps,
-        acceptedFile,
-        ProgressBar,
         getRemoveFileProps,
       }) => (
         <>
-          <div style={styles.csvReader}>
-            <button type="button" {...getRootProps()} style={styles.browseFile}>
+          <div
+            className="csv-reader"
+            style={styles.csvReader}>
+            <button
+              className="csv-reader__btn"
+              type="button" {...getRootProps()}
+              style={styles.browseFile}>
               Обзор
             </button>
-            <div style={styles.acceptedFile}>
-              {acceptedFile && acceptedFile.name}
-            </div>
-            <button {...getRemoveFileProps()} style={styles.remove}>
-              Удалить
+            <button {...getRemoveFileProps()}
+              className="csv-reader__btn"
+              style={styles.remove}
+              onClick={onChange}>
+              Очистить
             </button>
           </div>
-          <ProgressBar style={styles.progressBarBackgroundColor} />
         </>
       )}
     </CSVReader>
