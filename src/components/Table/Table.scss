@@ -7,7 +7,7 @@
   padding: 10px 10px;
   text-align: center;
   font-size: 24px;
-  color: var(--black);
+  color: var(--dark);
   border-bottom: 3px solid var(--main-border);
 }
 
@@ -59,7 +59,7 @@
   margin: 0;
   text-align: start;
   font-size: 20px;
-  color: var(--black);
+  color: var(--dark);
 }
 
 .table__element {
@@ -69,12 +69,12 @@
 
 .table__hash {
   width: 13.33px;
-  color: var(--button-text);
+  color: var(--text);
 }
 
 .table__text {
   text-align: start;
-  color: var(--button-text);
+  color: var(--text);
 }
 
 .table__input-container {

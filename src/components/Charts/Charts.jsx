@@ -9,12 +9,15 @@ function Charts({ unit, chartValues }) {
         className="charts__title">
           Графики
       </h2>
-      {unit.map((item, index) => (
-        <Chart
-          chartValues={chartValues}
-          unit={item}
-          key={index} />
-      ))}
+      <div
+        className="charts__container">
+        {unit.map((item, index) => (
+          <Chart
+            chartValues={chartValues}
+            unit={item}
+            key={index} />
+        ))}
+      </div>
     </div>
   );
 }
