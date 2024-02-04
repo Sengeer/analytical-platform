@@ -2,7 +2,11 @@ import { useCallback } from 'react';
 import './ChipsList.scss';
 import Chip from '../Chip/Chip';
 
-function ChipsList({ chips, value, onChange }) {
+function ChipsList({
+  chips,
+  value,
+  onChange
+}) {
   const onChipActivation = useCallback(
     (id) => {
       onChange(id);
@@ -11,7 +15,8 @@ function ChipsList({ chips, value, onChange }) {
   );
 
   return (
-    <div className="chips-list" data-testid="chip-list">
+    <div
+      className="chips-list" data-testid="chip-list">
       {chips.map((chip) => (
         <Chip
           key={chip.id}

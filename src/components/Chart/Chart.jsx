@@ -1,5 +1,13 @@
 import './Chart.scss';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+  LineChart,
+  Line, XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer
+} from 'recharts';
 
 function Chart({ chartValues, unit }) {
   const nextData = chartValues.filter((i) => i[unit] !== undefined);
@@ -14,7 +22,9 @@ function Chart({ chartValues, unit }) {
   }
 
   return (
-    <ResponsiveContainer width="100%" height={200}>
+    <ResponsiveContainer
+      width="100%"
+      height={200}>
       <LineChart
         width={600}
         height={200}
@@ -25,15 +35,22 @@ function Chart({ chartValues, unit }) {
           left: 70,
           bottom: 0
         }}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <Line type="monotone" dataKey={unit} stroke="var(--main-accent)" activeDot={{ r: 8 }}/>
-        <XAxis dataKey="name" />
-        <YAxis type="number" />
+        <CartesianGrid
+          strokeDasharray="3 3" />
+        <XAxis
+          dataKey="name" />
+        <YAxis
+          type="number" />
         <Tooltip />
         <Legend
           align="right"
           verticalAlign="top"
           height={20} />
+        <Line
+          type="monotone"
+          dataKey={unit}
+          stroke="var(--main-accent)"
+          activeDot={{ r: 8 }} />
       </LineChart>
     </ResponsiveContainer>
   );

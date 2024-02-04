@@ -1,6 +1,6 @@
 import './Files.scss';
 
-function Files({isOpen}) {
+function Files({ isOpen }) {
   return (
     <div
       className={`files${isOpen ? ' files_active' : ''}`}>

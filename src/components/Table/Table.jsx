@@ -2,7 +2,13 @@ import './Table.scss';
 import MinusIcon from '../../images/icon/minus-btn';
 import PlusIcon from '../../images/icon/plus-btn';
 
-const Table = ({nameUnit, unit, rows, onChange, onUpdate}) => {
+function Table ({
+  nameUnit,
+  unit,
+  rows,
+  onChange,
+  onUpdate
+}) {
   const handleAddRow = () => {
     const item = {};
     onChange(item);
@@ -15,16 +21,18 @@ const Table = ({nameUnit, unit, rows, onChange, onUpdate}) => {
   };
 
   const updateState = (e) => {
-    let prope = e.target.attributes.column.value;
-    let index = e.target.attributes.index.value;
-    let fieldValue = e.target.value;
+    if (e.target.value.length <= 11) {
+      let prope = e.target.attributes.column.value;
+      let index = e.target.attributes.index.value;
+      let fieldValue = e.target.value;
 
-    const tempRows = [...rows];
-    const tempObj = rows[index];
-    tempObj[prope] = fieldValue;
+      const tempRows = [...rows];
+      const tempObj = rows[index];
+      tempObj[prope] = fieldValue;
 
-    tempRows[index] = tempObj;
-    onUpdate(tempRows);
+      tempRows[index] = tempObj;
+      onUpdate(tempRows);
+    } else return;
   };
 
   return (

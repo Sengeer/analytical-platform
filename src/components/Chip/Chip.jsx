@@ -1,6 +1,11 @@
 import './Chip.scss';
 
-function Chip({ label, disabled, setActive, isActive }) {
+function Chip({
+  label,
+  disabled,
+  setActive,
+  isActive
+}) {
   return (
     <button
       type="button"
@@ -12,9 +17,5 @@ function Chip({ label, disabled, setActive, isActive }) {
     </button>
   );
 }
-
-Chip.defaultProps = {
-  primary: false,
-};
 
 export default Chip;
