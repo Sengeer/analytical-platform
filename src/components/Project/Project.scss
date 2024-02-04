@@ -1,4 +1,14 @@
 .project {
+  display: none;
+  width: 100%;
+}
+
+.project_active {
+  display: flex;
+  flex-direction: row;
+}
+
+.project__table {
   width: 100%;
   border-right: 3px solid var(--main-border);
   display: flex;

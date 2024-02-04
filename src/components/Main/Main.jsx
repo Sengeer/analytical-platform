@@ -1,16 +1,13 @@
 import './Main.scss';
-import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 import Project from "../Project/Project"
 import Popup from '../Popup/Popup';
 import ChipsList from '../ChipsList/ChipsList';
-import File from '../Files/Files'
+import Files from '../Files/Files'
 
 function Main() {
   const [isOpen, setIsOpen] = useState(Boolean());
-  const [params] = useSearchParams();
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [window, setWindow] = useState('project')
 
   const handleOpenInterface = () => {
     setIsOpen(!isOpen);
@@ -28,7 +25,7 @@ function Main() {
         active={isOpen}
         setActive={() => setIsOpen(!isOpen)}>
         <ChipsList
-          chips={params.get('mode') === 'project'
+          chips={window === 'project'
             ? [
               { label: 'Проект', id: 'project', disabled: true },
               { label: 'DB', id: 'files' },
@@ -36,16 +33,13 @@ function Main() {
               { label: 'Проект', id: 'project' },
               { label: 'DB', id: 'files', disabled: true },
             ]}
-          value={params.get('mode')}
-          onChange={(chips) =>
-            navigate(`/?mode=${chips}`, { state: location.state })
-          }
+          value={window}
+          onChange={(chips) => setWindow(chips)}
         />
-        {params.get('mode') === 'project' ? (
-          <Project />
-        ) : (
-          <File />
-        )}
+        <Project
+          isOpen={isOpen && window === 'project' ? true : false} />
+        <Files
+          isOpen={isOpen && window === 'files' ? true : false} />
       </Popup>
     </main>
   );

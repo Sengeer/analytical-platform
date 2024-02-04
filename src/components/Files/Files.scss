@@ -1,6 +1,12 @@
 .files {
   flex: 1;
+  display: none;
 }
+
+.files_active {
+  display: block;
+}
+
 
 .files__title {
   margin: 0;

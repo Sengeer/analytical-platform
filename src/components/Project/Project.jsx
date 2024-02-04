@@ -8,7 +8,7 @@ import {
   useCSVDownloader
 } from 'react-papaparse';
 
-const Project = () => {
+const Project = ({ isOpen }) => {
   const [rows, setRows] = useState([]);
 
   const nameUnit = ["Давление", "Температура", "Объем"]
@@ -43,8 +43,10 @@ const Project = () => {
   }
 
   return (
-    <>
-      <div className="project">
+    <div
+      className={`project${isOpen ? ' project_active' : ''}`}>
+      <div
+        className="project__table">
         <Table
           nameUnit={nameUnit}
           unit={unit}
@@ -69,7 +71,7 @@ const Project = () => {
       <Charts
         unit={unit}
         chartValues={rows} />
-    </>
+    </div>
   );
 };
 

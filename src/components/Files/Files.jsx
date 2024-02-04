@@ -1,9 +1,9 @@
 import './Files.scss';
 
-function Files() {
+function Files({isOpen}) {
   return (
     <div
-      className="files">
+      className={`files${isOpen ? ' files_active' : ''}`}>
       <h2
         className="files__title">
         Проводник
