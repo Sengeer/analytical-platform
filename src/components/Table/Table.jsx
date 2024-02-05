@@ -91,7 +91,7 @@ function Table ({
                       <input
                         type="number"
                         column={unit[index]}
-                        value={rows[idx][unit[index]]}
+                        value={rows[idx][unit[index]] || ''}
                         index={idx}
                         className="table__input"
                         onChange={(e) => updateState(e)} />
