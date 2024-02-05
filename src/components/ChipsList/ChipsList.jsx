@@ -23,8 +23,7 @@ function ChipsList({
           label={chip.label}
           disabled={chip.disabled}
           isActive={value === chip.id}
-          setActive={() => onChipActivation(chip.id)}
-        />
+          setActive={() => onChipActivation(chip.id)} />
       ))}
     </div>
   );

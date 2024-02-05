@@ -11,8 +11,7 @@ function Chip({
       type="button"
       disabled={disabled}
       className={`chip ${isActive ? 'chip_active' : ''}`}
-      onClick={() => setActive(true)}
-    >
+      onClick={() => setActive(true)}>
       {label}
     </button>
   );
