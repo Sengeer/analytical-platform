@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/analytical-platform/static/css/main.ee8d50dd.css",
+    "main.js": "/analytical-platform/static/js/main.317d7ab5.js",
+    "static/media/Roboto-Medium.ttf": "/analytical-platform/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
+    "static/media/noise.png": "/analytical-platform/static/media/noise.56af95d40084f094eb73.png",
+    "index.html": "/analytical-platform/index.html",
+    "main.ee8d50dd.css.map": "/analytical-platform/static/css/main.ee8d50dd.css.map",
+    "main.317d7ab5.js.map": "/analytical-platform/static/js/main.317d7ab5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ee8d50dd.css",
+    "static/js/main.317d7ab5.js"
+  ]
+}
