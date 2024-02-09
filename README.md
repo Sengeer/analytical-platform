@@ -1,4 +1,4 @@
-<h1 align="center">Analytical Platform</h1>
+<h1 align="center"><a href="https://sengeer.github.io/analytical-platform/" target="_blank">Analytical Platform</a></h1>
 
 Небольшое оконное приложение, аналитическая платформа, позволяет составить графики на основе единиц измерений и сохранить их в CSV файл. 
 
