@@ -16,7 +16,7 @@ const styles = {
     boxShadow: '0px 2px 6px rgba(0, 0, 0, 0.2)',
     transition: 'all linear 0.2s',
     overflow: 'hidden',
-    width: '26%',
+    width: '29%',
   },
   remove: {
     backgroundColor: 'var(--main-accent)',
@@ -26,7 +26,8 @@ const styles = {
     cursor: 'pointer',
     boxShadow: '0px 2px 6px rgba(0, 0, 0, 0.2)',
     transition: 'all linear 0.2s',
-    width: '26%',
+    overflow: 'hidden',
+    width: '29%',
     marginRight: '28px',
   },
 };
